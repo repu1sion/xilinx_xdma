@@ -21,7 +21,8 @@ ifneq ($(KERNELRELEASE),)
 	$(TARGET_MODULE)-objs := libxdma.o xdma_cdev.o cdev_ctrl.o cdev_events.o cdev_sgdma.o cdev_xvc.o cdev_bypass.o xdma_mod.o xdma_thread.o
 	obj-m := $(TARGET_MODULE).o
 else
-	BUILDSYSTEM_DIR:=/lib/modules/$(shell uname -r)/build
+	#BUILDSYSTEM_DIR:=/lib/modules/$(shell uname -r)/build
+	BUILDSYSTEM_DIR:=/opt/ti-processor-sdk-linux-am65xx-evm-06.03.00.106/board-support/linux-4.19.94+gitAUTOINC+be5389fd85-gbe5389fd85
 	PWD:=$(shell pwd)
 all :
 	$(MAKE) -C $(BUILDSYSTEM_DIR) M=$(PWD) modules
